@@ -1,0 +1,15 @@
+﻿<resources>
+    <string name="app_name">HyperType HID Macro</string>
+    <string name="status_disconnected">Status: Disconnected</string>
+    <string name="select_device_hint">Select Paired Device</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="text_hint">Enter text to type...</string>
+    <string name="speed_label">Typing Speed: %1$d WPM</string>
+    <string name="random_delay">Random Delay (Jitter)</string>
+    <string name="humanize">Humanize (Wandering Speed)</string>
+    <string name="fluctuation_label">Speed Fluctuation Range: ±%1$d WPM</string>
+    <string name="typo_label">Typo Frequency: %1$d%%</string>
+    <string name="start_typing">Start Auto-Typing</string>
+    <string name="stop_typing">Stop</string>
+</resources>

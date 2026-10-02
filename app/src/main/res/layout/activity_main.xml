@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Hero Section Header -->
+        <RelativeLayout
+            android:id="@+id/heroHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_hero_gradient"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="HYPER-TYPER PRO"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnProBadge"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="10dp"
+                        android:backgroundTint="#33FFD700"
+                        android:text="⭐ PRO"
+                        android:textColor="#FFD700"
+                        android:textSize="11sp"
+                        app:cornerRadius="18dp" />
+
+                    <View
+                        android:id="@+id/statusDot"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_status_dot_disconnected" />
+
+                    <TextView
+                        android:id="@+id/connectionStatusTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Status: Disconnected"
+                        android:textColor="@color/error"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Ultra-Fast Bluetooth Key Injector &amp; Anti-Detection Engine"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- CARD 1: Device Connection -->
+        <LinearLayout
+            android:id="@+id/cardConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:text="TARGET DEVICE CONNECTION"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <!-- Hardware Stealth Identity Disguise Banner -->
+            <LinearLayout
+                android:id="@+id/layoutIdentityBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_glass_card"
+                android:backgroundTint="#1A00E5FF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎭"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.05"
+                        android:text="BLUETOOTH IDENTITY DISGUISE"
+                        android:textColor="@color/primary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvActiveIdentity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="Logitech MX Keys S"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnChangeIdentity"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Change"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp"
+                    app:cornerRadius="18dp" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/select_device_hint"
+                app:boxStrokeColor="@color/primary"
+                app:hintTextColor="@color/primary">
+
+                <AutoCompleteTextView
+                    android:id="@+id/deviceSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textColor="@color/text_primary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/connectButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/primary"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/connect"
+                    android:textColor="@color/on_primary"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/disconnectButton"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/disconnect"
+                    android:textColor="@color/text_secondary"
+                    app:cornerRadius="12dp"
+                    app:strokeColor="@color/card_border" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMakeDiscoverable"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="📡 Pair as Keyboard"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAudioFix"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="🛠️ Audio Block Fix"
+                    android:textColor="@color/warning"
+                    android:textSize="12sp"
+                    app:cornerRadius="12dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- CARD 2: Text Input Console -->
+        <LinearLayout
+            android:id="@+id/cardTextConsole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.1"
+                    android:text="PAYLOAD TEXT CONSOLE"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/charCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="0 chars"
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/text_hint"
+                app:boxStrokeColor="@color/secondary"
+                app:hintTextColor="@color/secondary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:minLines="5"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Quick Template & Action Buttons -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCodeVault"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="🗄️ Code Vault"
+                        android:textColor="@color/secondary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPasteClipboard"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="📋 Paste Clipboard"
+                        android:textColor="@color/primary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSanitizeCode"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="✨ Fix IDE Brackets &amp; Indents"
+                        android:textColor="@color/accent_lime"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnClearText"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clear"
+                        android:textColor="@color/error"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSampleText1"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Sample Code"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSampleText2"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Lorem Ipsum"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSampleText3"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Speed Test"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/smartIdeModeCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:checked="true"
+                android:text="🛠️ Smart IDE Mode (Auto-Indent &amp; Bracket Collision Fix)"
+                android:textColor="@color/primary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/autoClearCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:checked="true"
+                android:text="🧹 Auto-Clear Console when typing finishes"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- CARD 3: Speed & Engine Parameters -->
+        <LinearLayout
+            android:id="@+id/cardEngineParams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:text="1-CLICK PROFILE PRESETS"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <!-- Profile Preset Chips -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/profilePresetChipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/profileGhostChip"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🕵️ Ghost Stealth (100% Undetectable Human)"
+                        android:textColor="@color/accent_lime" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/profileStudentChip"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧑‍💻 Natural Student (55 WPM Casual)"
+                        android:textColor="@color/warning" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/profileExpertChip"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ Fast Touch-Typist (110 WPM)"
+                        android:textColor="@color/primary" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/card_border" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:text="ENGINE SPEED &amp; TIMINGS"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <!-- Preset Speed Chips -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/presetChipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip60Wpm"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 WPM"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip150Wpm"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150 WPM"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip300Wpm"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="300 WPM"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip600Wpm"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="600 WPM"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip1200Wpm"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1200 WPM"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip3000Wpm"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🚀 3000 WPM"
+                        android:textColor="@color/primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipInstant"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ INSTANT ULTRA (0ms)"
+                        android:textColor="@color/accent_pink" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/speedLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Typing Speed: 60 WPM (Max: 5000 WPM)"
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/speedSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:value="60.0"
+                android:valueFrom="10.0"
+                android:valueTo="5000.0"
+                app:thumbColor="@color/primary"
+                app:trackColorActive="@color/primary"
+                app:trackColorInactive="@color/card_border" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="@color/card_border" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/countdownDelayCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="⏳ 5-Second Start Countdown (Focus Delay)"
+                android:textColor="@color/primary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/thinkingPausesCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:checked="false"
+                android:text="🧠 Biometric Cognitive Engine (Anti-Detection Evasion)"
+                android:textColor="@color/accent_lime" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/randomDelayCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:checked="false"
+                android:text="@string/random_delay"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/jitterLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Random Delay Range (Jitter): 0ms - 100ms"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/jitterSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:valueFrom="0.0"
+                android:valueTo="500.0"
+                app:values="@array/initial_jitter_values" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/humanizeCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="@string/humanize"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/fluctuationLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Speed Fluctuation Range: ±25 WPM"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/fluctuationSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:value="25.0"
+                android:valueFrom="0.0"
+                android:valueTo="100.0" />
+
+            <TextView
+                android:id="@+id/typoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Typo Frequency: 0%"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/typoSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:value="0.0"
+                android:valueFrom="0.0"
+                android:valueTo="20.0" />
+        </LinearLayout>
+
+        <!-- CARD 4: Execution & Live Speedometer Stats -->
+        <LinearLayout
+            android:id="@+id/cardExecution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/bg_glass_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Live Real-Time WPM Speedometer Dashboard -->
+            <LinearLayout
+                android:id="@+id/layoutLiveTelemetry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_hero_gradient"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.1"
+                        android:text="REAL-TIME TELEMETRY"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/liveSpeedBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_status_dot_typing"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="3dp"
+                        android:text="STANDBY"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Big Dynamic Live WPM Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/liveWpmValueTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.02"
+                        android:text="0"
+                        android:textColor="@color/primary"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="LIVE WPM"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/charsPerSecTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="0.0 chars/sec"
+                            android:textColor="@color/accent_lime"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/avgWpmTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Avg: 0 WPM"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/elapsedTimeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="sans-serif"
+                            android:text="⏱️ 0.0s"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/typingProgressTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:text="Ready for transmission"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/typingProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="8dp"
+                    android:progress="0"
+                    app:indicatorColor="@color/primary"
+                    app:trackColor="@color/card_border"
+                    app:trackCornerRadius="4dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/startTypingButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="@color/secondary"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:text="@string/start_typing"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:cornerRadius="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/stopTypingButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#26FF5252"
+                android:fontFamily="sans-serif-bold"
+                android:text="@string/stop_typing"
+                android:textColor="@color/error"
+                android:textSize="15sp"
+                android:visibility="gone"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/error"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
