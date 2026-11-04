@@ -1,0 +1,19 @@
+name: 🐛 Bug Report
+description: Report an issue or pairing failure
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Bug Description
+      description: Describe what happened.
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Android Phone Model & OS
+      description: e.g. Pixel 8 / Samsung S24 running Android 14
+    validations:
+      required: true
